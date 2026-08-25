@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Calculator Lock</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1a1a1a">
+</head>
+<body>
+    <!-- Calculator Screen -->
+    <div class="calculator" id="calculator">
+        <div class="display">
+            <input type="text" id="calcDisplay" readonly placeholder="0">
+        </div>
+        <div class="buttons">
+            <button onclick="appendValue('7')">7</button>
+            <button onclick="appendValue('8')">8</button>
+            <button onclick="appendValue('9')">9</button>
+            <button class="operator" onclick="appendValue('/')">÷</button>
+            
+            <button onclick="appendValue('4')">4</button>
+            <button onclick="appendValue('5')">5</button>
+            <button onclick="appendValue('6')">6</button>
+            <button class="operator" onclick="appendValue('*')">×</button>
+            
+            <button onclick="appendValue('1')">1</button>
+            <button onclick="appendValue('2')">2</button>
+            <button onclick="appendValue('3')">3</button>
+            <button class="operator" onclick="appendValue('-')">−</button>
+            
+            <button onclick="appendValue('0')">0</button>
+            <button onclick="appendValue('.')">.</button>
+            <button class="equals" onclick="calculate()">=</button>
+            <button class="operator" onclick="appendValue('+')">+</button>
+            
+            <button class="clear" onclick="clearDisplay()">C</button>
+            <button onclick="appendValue('00')">00</button>
+            <button onclick="backspace()">⌫</button>
+            <button class="operator" onclick="appendValue('%')">%</button>
+        </div>
+    </div>
+
+    <!-- Hidden Vault -->
+    <div class="vault" id="vault" style="display:none;">
+        <div class="vault-header">
+            <h2>🔒 Secret Vault</h2>
+            <button onclick="closeVault()">✕</button>
+        </div>
+        
+        <!-- PIN Setup -->
+        <div class="pin-setup" id="pinSetup" style="display:none;">
+            <h3>Set Security PIN</h3>
+            <input type="password" id="newPin" maxlength="4" placeholder="4-digit PIN" inputmode="numeric">
+            <input type="password" id="confirmPin" maxlength="4" placeholder="Confirm PIN" inputmode="numeric">
+            <button onclick="setupPin()">Save PIN</button>
+        </div>
+        
+        <!-- PIN Login -->
+        <div class="pin-login" id="pinLogin" style="display:none;">
+            <h3>Enter PIN to Unlock</h3>
+            <input type="password" id="loginPin" maxlength="4" placeholder="Enter PIN" inputmode="numeric">
+            <button onclick="verifyPin()">Unlock</button>
+        </div>
+        
+        <!-- Vault Content -->
+        <div class="vault-content" id="vaultContent" style="display:none;">
+            <h3>Hidden Files</h3>
+            <input type="file" id="fileInput" multiple style="display:none;">
+            <button onclick="document.getElementById('fileInput').click()">Upload Files</button>
+            <div class="file-list" id="fileList"></div>
+            <button onclick="changePin()">Change PIN</button>
+            <button onclick="logout()">Lock Vault</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
