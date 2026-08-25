@@ -1,0 +1,220 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Calculator Styles */
+.calculator {
+    background: #2c2c2c;
+    border-radius: 20px;
+    padding: 20px;
+    width: 320px;
+    max-width: 95vw;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.display {
+    margin-bottom: 20px;
+}
+
+.display input {
+    width: 100%;
+    padding: 15px;
+    font-size: 32px;
+    text-align: right;
+    background: #1a1a1a;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    pointer-events: none;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.buttons button {
+    padding: 18px;
+    font-size: 20px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background: #3a3a3a;
+    color: #fff;
+    transition: all 0.2s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.buttons button:active {
+    background: #4a4a4a;
+    transform: scale(0.95);
+}
+
+.buttons .operator {
+    background: #ff9500;
+    color: #fff;
+}
+
+.buttons .operator:active {
+    background: #ffaa33;
+}
+
+.buttons .equals {
+    background: #34c759;
+    color: #fff;
+}
+
+.buttons .equals:active {
+    background: #28a745;
+}
+
+.buttons .clear {
+    background: #ff3b30;
+    color: #fff;
+}
+
+.buttons .clear:active {
+    background: #dc3545;
+}
+
+/* Vault Styles */
+.vault {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #2c2c2c;
+    border-radius: 20px;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+.vault-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.vault-header h2 {
+    color: #fff;
+    font-size: 24px;
+}
+
+.vault-header button {
+    background: #ff3b30;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.pin-setup, .pin-login, .vault-content {
+    color: #fff;
+}
+
+.pin-setup h3, .pin-login h3, .vault-content h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.pin-setup input, .pin-login input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-align: center;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background: #1a1a1a;
+    color: #fff;
+    outline: none;
+}
+
+.pin-setup button, .pin-login button, .vault-content button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #007aff;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.pin-setup button:active, .pin-login button:active, .vault-content button:active {
+    background: #0056b3;
+}
+
+.file-list {
+    margin-top: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #3a3a3a;
+    margin-bottom: 8px;
+    border-radius: 8px;
+}
+
+.file-item span {
+    flex: 1;
+    margin-right: 10px;
+    word-break: break-all;
+}
+
+.file-item button {
+    width: auto;
+    padding: 5px 10px;
+    margin: 0 2px;
+    font-size: 14px;
+}
+
+.vault-content > button {
+    margin-bottom: 10px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 10px;
+}
